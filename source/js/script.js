@@ -36,14 +36,14 @@
 let cursor = {},
     glowButtons = document.querySelectorAll(".glowAnim");
 
-document.onmousemove = btnGlowAnimation;
+document.onmousemove = () => btnGlowAnimation(event, glowButtons);
 
 
-function btnGlowAnimation(event) {
+function btnGlowAnimation(event, buttons) {
   let userX = window.event.clientX, // положение курсора
       userY = window.event.clientY;
 
-  glowButtons.forEach( (elem, event) => {
+  buttons.forEach( (elem, event) => {
     // найти центр в кнопках 
     let btnPos = elem.getBoundingClientRect(),
         btnCenterX = btnPos.x + (btnPos.width / 2),
@@ -63,7 +63,6 @@ function addGlowAnimation(btn, btnX, btnY, userX, userY) {
 
     if ( (Math.abs(btnUserDistanceX) < 60 )  && ( Math.abs(btnUserDistanceY)) < 60 ) {
       btn.style.boxShadow = `0 0 ${30 - (Math.max(Math.abs(btnUserDistanceX) + Math.abs(btnUserDistanceY))) / 2.3}px rgb(0, 225, 255)`
-    console.log("y")
     } else {
       btn.style.boxShadow = `0 0 0px rgb(0, 225, 255)`
     }
