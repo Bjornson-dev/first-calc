@@ -66,6 +66,7 @@ body {
 }
 
 .number {
+  position: relative;
   width: 50px;
   height: 50px;
   margin: 20px 20px 0 0;
@@ -73,8 +74,9 @@ body {
   font-size: 18px;
   border-radius: 50px / 30px;
   border: 1px solid #00e1ff;
-  background-color: #000;
+  background-color: transparent;
   color: #fff;
+  overflow: hidden;
 }
 
 .number:hover, .number:focus {
@@ -82,4 +84,64 @@ body {
   cursor: pointer;
   -webkit-box-shadow: 0 0 30px #00e1ff;
           box-shadow: 0 0 30px #00e1ff;
+}
+
+.ripple {
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  background-color: #00e1ff;
+  border-radius: 100px;
+  width: 100px;
+  height: 100px;
+  -webkit-transform: scale(0.01);
+      -ms-transform: scale(0.01);
+          transform: scale(0.01);
+  -webkit-animation-name: rippleAnim;
+          animation-name: rippleAnim;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+@-webkit-keyframes rippleAnim {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.01);
+            transform: scale(0.01);
+  }
+  35% {
+    opacity: 0.75;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes rippleAnim {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.01);
+            transform: scale(0.01);
+  }
+  35% {
+    opacity: 0.75;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }

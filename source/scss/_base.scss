@@ -59,6 +59,7 @@ body {
 	flex-wrap: wrap;
 }
 .number {
+	position: relative;
 	width: 50px;
 	height: 50px;
 	margin: 20px 20px 0 0;
@@ -66,12 +67,47 @@ body {
 	font-size: 18px;
 	border-radius: 50px / 30px;
 	border: 1px solid rgb(0, 225, 255);
-	background-color: #000;
+	background-color: transparent;
 	color: #fff;
+	overflow: hidden;
 	&:hover,
 	&:focus {
 		outline: none;
 		cursor: pointer;
 		box-shadow: 0 0 30px rgb(0, 225, 255);
+	}
+}
+
+.ripple {
+	position: absolute;
+	z-index: -1;
+	top: 0px;
+	left: 0px;
+	background-color: rgb(0, 225, 255);
+	border-radius: 100px;
+	width: 100px;
+	height: 100px;
+	transform: scale(0.01);
+	animation-name: rippleAnim;
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: 1;
+}
+
+@keyframes rippleAnim {
+	0% {
+		opacity: 0;
+	transform: scale(0.01);
+
+	}
+	35% {
+		opacity: 0.75;
+	}
+	70% {
+		opacity: 0.4;
+	}
+	100% {
+		opacity: 0;
+		transform: scale(1);
 	}
 }
