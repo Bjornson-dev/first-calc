@@ -2,6 +2,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Radnika', Arial, Helvetica, sans-serif;
 }
 
 html {
@@ -48,8 +49,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   min-height: 100vh;
 }
 
@@ -58,20 +60,21 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  padding: 10px 6px;
 }
 
 .number {
   position: relative;
   width: 50px;
   height: 50px;
-  margin: 20px 20px 0 0;
   font-weight: 700;
   font-size: 18px;
+  margin-bottom: 10px;
   border-radius: 50px / 30px;
   border: 1px solid #00e1ff;
   background-color: transparent;
@@ -82,8 +85,6 @@ body {
 .number:hover, .number:focus {
   outline: none;
   cursor: pointer;
-  -webkit-box-shadow: 0 0 30px #00e1ff;
-          box-shadow: 0 0 30px #00e1ff;
 }
 
 .ripple {
@@ -91,7 +92,7 @@ body {
   z-index: -1;
   top: 0px;
   left: 0px;
-  background-color: #00e1ff;
+  background-color: #cf21e6;
   border-radius: 100px;
   width: 100px;
   height: 100px;
@@ -106,6 +107,76 @@ body {
           animation-timing-function: ease-in;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
+}
+
+.output {
+  display: table-cell;
+  border: none;
+  border-bottom: 2px solid #00e1ff;
+  height: auto;
+  width: 210px;
+  max-width: 210px;
+  color: #fff;
+  text-align: right;
+  vertical-align: bottom;
+  font-size: 22px;
+  word-wrap: break-word;
+  background-color: transparent;
+}
+
+.output:focus {
+  outline: none;
+}
+
+.output::-moz-selection {
+  color: #000;
+  background-color: #cf21e6;
+}
+
+.output::selection {
+  color: #000;
+  background-color: #cf21e6;
+}
+
+.function__panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-left: 50px;
+  width: 235px;
+}
+
+.result {
+  color: #fff;
+  text-align: right;
+}
+
+@-webkit-keyframes selectionAnim {
+  0% {
+    color: #00e1ff;
+  }
+  50% {
+    color: rgba(0, 225, 255, 0.7);
+  }
+  100% {
+    color: #00e1ff;
+  }
+}
+
+@keyframes selectionAnim {
+  0% {
+    color: #00e1ff;
+  }
+  50% {
+    color: rgba(0, 225, 255, 0.7);
+  }
+  100% {
+    color: #00e1ff;
+  }
 }
 
 @-webkit-keyframes rippleAnim {

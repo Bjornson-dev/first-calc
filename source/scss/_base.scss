@@ -11,6 +11,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	font-family: 'Radnika', Arial, Helvetica, sans-serif;
 }
 html {
 	box-sizing: border-box;
@@ -48,23 +49,24 @@ body {
 .container {
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: center;
 	min-height: 100vh;
 }
 ////////////////////////////////////////////////////////
 .numbers {
 	width: 210px;
 	display: flex;
-	justify-content: space-between;
 	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 10px 6px;
 }
 .number {
 	position: relative;
 	width: 50px;
 	height: 50px;
-	margin: 20px 20px 0 0;
 	font-weight: 700;
 	font-size: 18px;
+	margin-bottom: 10px;
 	border-radius: 50px / 30px;
 	border: 1px solid rgb(0, 225, 255);
 	background-color: transparent;
@@ -74,7 +76,6 @@ body {
 	&:focus {
 		outline: none;
 		cursor: pointer;
-		box-shadow: 0 0 30px rgb(0, 225, 255);
 	}
 }
 
@@ -83,7 +84,7 @@ body {
 	z-index: -1;
 	top: 0px;
 	left: 0px;
-	background-color: rgb(0, 225, 255);
+	background-color: rgb(207, 33, 230);
 	border-radius: 100px;
 	width: 100px;
 	height: 100px;
@@ -93,6 +94,54 @@ body {
 	animation-timing-function: ease-in;
 	animation-iteration-count: 1;
 }
+
+.output {
+	display: table-cell;
+	border: none;
+	border-bottom: 2px solid rgb(0, 225, 255);
+	height: auto;
+	width: 210px;
+	max-width: 210px;
+	color: #fff;
+	text-align: right;
+	vertical-align: bottom;
+	font-size: 22px;
+	word-wrap: break-word;
+	background-color: transparent;
+	&:focus {
+		outline: none;
+	}
+	&::selection { 
+		color: #000;
+		background-color: rgb(207, 33, 230);
+	}
+}
+
+.function__panel {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-left: 50px;
+	width: 235px;
+}
+
+.result {
+	color: #fff;
+	text-align: right;
+}
+
+@keyframes selectionAnim {
+	0% {
+		color: rgba(0, 225, 255, 1);
+	}
+	50% {
+		color: rgba(0, 225, 255, 0.7);
+	}
+	100% {
+		color: rgba(0, 225, 255, 1);
+	}
+}
+
 
 @keyframes rippleAnim {
 	0% {
